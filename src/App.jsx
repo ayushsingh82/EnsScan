@@ -4,7 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header/Header'
 import Search from './components/Search/Search.jsx'
-// import Table from './components/Table/Table'
+
 
 import { createClient, cacheExchange, fetchExchange } from '@urql/core'
 
@@ -47,7 +47,7 @@ query {
     h-screen w-screen'>
      <Header/> 
      <Search/>
-     {/* <Table/> */}
+  
      <div className='mt-[40px]'>
         {
           domains!==null && domains.length>0 && domains.map((domain,index)=>{
