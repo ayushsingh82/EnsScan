@@ -52,10 +52,43 @@ query {
         {
           domains!==null && domains.length>0 && domains.map((domain,index)=>{
             return(
-              <div key={index} >
-              <div>{domain.id}</div>
-              <div>{domain.name}</div>
-              </div>
+              
+     <div className='mt-[80px] w-2/3 mx-auto border rounded-lg overflow-hidden border-transparent'>
+      {/* <!-- Table responsive wrapper --> */}
+<div class="overflow-x-auto bg-white dark:white">
+
+  {/* <!-- Table --> */}
+  <table class="min-w-full text-left text-sm whitespace-nowrap">
+
+    {/* <!-- Table head --> */}
+    <thead class="uppercase tracking-wider border-b-2 bg-slate-300 border-t">
+      <tr>
+       
+        <th scope="col" class="px-6 py-4 border-x ">
+       Name
+        </th>
+        <th scope="col" class="px-6 py-4 border-x ">
+          ID
+        </th>
+      </tr>
+    </thead>
+
+    {/* <!-- Table body --> */}
+    <tbody>
+
+      <tr class="border-b border-neutral-600 hover:bg-slate-300 ">
+        <th scope="row" class="px-6 py-4 border-x bg-slate-300">
+         {domain.name}
+        </th>
+        <td class="px-6 py-4 border-x ">{domain.id}</td>     
+      </tr>
+
+    </tbody>
+
+  </table>
+
+</div>
+    </div>
             )
           })
         }
@@ -65,3 +98,5 @@ query {
 }
 
 export default App
+
+
