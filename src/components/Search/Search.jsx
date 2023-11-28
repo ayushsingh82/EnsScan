@@ -14,11 +14,19 @@ function Search() {
     exchanges: [cacheExchange, fetchExchange],
   });
 
-  const query = `
+//   const query = `
+// query {
+//   domains(first:2) {
+//     id
+//     name
+//   }
+// }
+// `;
+
+const query = `
 query {
-  domains(first:2) {
+  domains(where:{name:"vitalik.eth"}) {
     id
-    name
   }
 }
 `;
@@ -38,14 +46,13 @@ query {
   }
 
   const handleSearch = () => {
-     
     console.log('Search clicked with value:', inputValue);
-  
   };
 
 
   
   return (
+    <>
     <div className='mt-[60px] flex justify-between  rounded-xl border-solid border-2 
     h-[60px] p-[10px] w-[400px] mx-auto bg-slate-200 '>
 
@@ -64,11 +71,20 @@ query {
             <FaSearch size={30} />
           </button>
       </div>
+    </div>  
     </div>
 
-
-  
-    </div>
+      <div className='text-white text-3xl mt-[40px]'>
+      <div>Hello</div>
+      {
+        domains!==null && domains.length>0 &&
+          domains.map((domain,index)=>{
+            <div key={index}>{domain.id}</div>
+          })
+       }
+      </div>
+     
+      </>
     
   )
 }
