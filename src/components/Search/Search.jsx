@@ -1,95 +1,77 @@
-
-import React,{useState,useEffect} from 'react'
-import { FaSearch } from "react-icons/fa";
-import { createClient, cacheExchange, fetchExchange } from "@urql/core";
+import React, { useState, useEffect } from 'react';
+import { FaSearch } from 'react-icons/fa';
+import { createClient, cacheExchange, fetchExchange } from '@urql/core';
 
 function Search() {
-
-  const [inputValue,setInputValue]=useState('');
+  const [inputValue, setInputValue] = useState('');
   const [domains, setDomains] = useState([]);
-  const QueryURL = "https://api.thegraph.com/subgraphs/name/ensdomains/ens";
+  const QueryURL = 'https://api.thegraph.com/subgraphs/name/ensdomains/ens';
 
   const client = createClient({
     url: QueryURL,
     exchanges: [cacheExchange, fetchExchange],
   });
 
-//   const query = `
-// query {
-//   domains(first:2) {
-//     id
-//     name
-//   }
-// }
-// `;
+  const query = `
+    query {
+      domains(where:{name:"${inputValue}"}) {
+        id
+      }
+    }
+  `;
 
-const query = `
-query {
-  domains(where:{name:"vitalik.eth"}) {
-    id
-  }
-}
-`;
+  const getDomains = async () => {
+    const { data } = await client.query(query).toPromise();
+    console.log(data);
+    setDomains(data.domains);
+  };
 
   useEffect(() => {
-    const getDomains = async () => {
-      const { data } = await client.query(query).toPromise();
-      console.log(data);
-      setDomains(data.domains);
-    };
     getDomains();
-  }, []);
+  }, []); // Run the effect when inputValue changes
 
-  const handleInputChange=(e)=>{
+  const handleInputChange = (e) => {
     setInputValue(e.target.value);
-     console.log(e.target.value)
-  }
+    console.log(e.target.value);
+  };
 
   const handleSearch = () => {
     console.log('Search clicked with value:', inputValue);
+    getDomains(); 
   };
 
-
-  
   return (
     <>
-    <div className='mt-[60px] flex justify-between  rounded-xl border-solid border-2 
-    h-[60px] p-[10px] w-[400px] mx-auto bg-slate-200 '>
-
-    <div className='w-[400px] border border-transparent hover:border-slate-800 mr-[10px]  rounded-xl  h-[40px] flex
-     hover:border-solid hover:border-2 font-medium text-lg px-[10px] '>
-       <input
-    className='h-[40px] w-[300px] overflow-hidden focus:outline-none bg-transparent'
-        type="text"
-        id="myInput"
-        value={inputValue}
-        placeholder='Type- name.eth'
-        onChange={handleInputChange}   
+      <div className='mt-[60px] flex justify-between rounded-xl border-solid border-2 h-[60px] p-[10px] w-[400px] mx-auto bg-slate-200'>
+        <div className='w-[400px] border border-transparent hover:border-slate-800 mr-[10px] rounded-xl h-[40px] flex hover:border-solid hover:border-2 font-medium text-lg px-[10px]'>
+          <input
+            className='h-[40px] w-[300px] overflow-hidden focus:outline-none bg-transparent'
+            type='text'
+            id='myInput'
+            value={inputValue}
+            placeholder='Type- name.eth'
+            onChange={handleInputChange}
           />
-      <div className='flex items-center mr-[5px] text-slate-800'>
-      <button onClick={handleSearch}>
-            <FaSearch size={30} />
-          </button>
+          <div className='flex items-center mr-[5px] text-slate-800'>
+            <button onClick={handleSearch}>
+              <FaSearch size={30} />
+            </button>
+          </div>
+        </div>
       </div>
-    </div>  
-    </div>
 
-      <div className='text-slate-800 text-3xl mt-[40px]'>
-      <div>Hello</div>
-      {
-        domains!==null && domains.length>0 &&
-          domains.map((domain,index)=>{
-            <div key={index}>{domain.id}</div>
-          })
-       }
+      <div className='border border-red-700 mt-[40px] flex flex-col justify-center '>
+        <div className=' mt-[40px] text-2xl font-medium text-slate-800'>Account</div>
+        <div className='text-slate-800 text-2xl mt-[5px] flex justify-center items-center h-[80px] w-[900px]'>
+          {domains !== null && domains.length > 0 && domains.map((domain, index) => <div key={index}>{domain.id}</div>)}
+        </div>
       </div>
-     
-      </>
-    
-  )
+    </>
+  );
 }
 
-export default Search
+export default Search;
+
 
   // const [selectedOption, setSelectedOption] = useState('All Filters');
 
@@ -110,3 +92,6 @@ export default Search
         <option value="Option3">Domain Names</option>   
       </select>
     </div> */}
+
+
+  
