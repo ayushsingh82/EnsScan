@@ -35,7 +35,7 @@ function App() {
 //   }, []);
 
   return (
-    <div className="bg-slate-800 overflow-hidden h-screen">
+    <div className="bg-gradient-to-l from-purple-400 via-puple-300 to-purple-200 overflow-hidden h-screen">
       <Header />
       <Search />
 

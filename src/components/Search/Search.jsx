@@ -74,7 +74,7 @@ query {
     </div>  
     </div>
 
-      <div className='text-white text-3xl mt-[40px]'>
+      <div className='text-slate-800 text-3xl mt-[40px]'>
       <div>Hello</div>
       {
         domains!==null && domains.length>0 &&
