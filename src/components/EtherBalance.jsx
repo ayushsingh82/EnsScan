@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Loader } from './Loader';
+import { RiBankCardFill } from "react-icons/ri";
 
 function EtherBalance(props) {
   const [balance, setBalance] = useState(0);
@@ -38,10 +39,11 @@ function EtherBalance(props) {
 
   return (
     <div className='flex justify-center mt-[40px] shadow-sm'>
-    <div className='text-2xl  text-slate-800
-     bg-gradient-to-l from-purple-500 via-purple-200 to-purple-400
+    <div className='text-2xl  text-white
+    bg-blue-600
      border rounded-xl border-transparent font-medium
-    hover:scale-110 transition-all duration-500 ease-in-out py-[10px] px-[10px]'>
+    hover:scale-110 transition-all duration-500 ease-in-out py-[10px] px-[10px] flex'>
+    <RiBankCardFill className='mr-[10px] mt-[7px]'/>
       {loading ? (
         <p><Loader/></p>
       ) : (
@@ -56,5 +58,5 @@ export default EtherBalance;
 
 
 
-
+// bg-gradient-to-l from-purple-500 via-purple-200 to-purple-400
 //    0x54Ee3616325be6611D3475BB1fa5ca706d54FE92

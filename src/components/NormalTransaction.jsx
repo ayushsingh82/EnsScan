@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { GrTransaction } from "react-icons/gr";
 
 function NormalTransaction(props) {
   const [transactions, setTransactions] = useState([]);
@@ -34,7 +35,8 @@ function NormalTransaction(props) {
   return (
     <div className='flex flex-col justify-center mt-[40px]'>
       <div>
-        <h2 className='text-slate-800 text-2xl font-medium bg-purple-300 mx-auto w-[300px] border rounded-xl border-transparent
+        <h2 className='text-slate-800 text-2xl font-medium b mx-auto w-[300px] border rounded-xl border-transparent
+          bg-gradient-to-r from-gray-100 to-gray-300
         hover:scale-110 transition-all duration-500 ease-in-out'>
          Normal Transactions
         </h2>
@@ -44,19 +46,19 @@ function NormalTransaction(props) {
           <table className="min-w-full text-left text-sm whitespace-nowrap">
             <thead className="uppercase tracking-wider border-b-2 bg-slate-300 border-t">
               <tr>
-                <th scope="col" className="px-6 py-4 border-x text-black bg-slate-300">
+                <th scope="col" className="px-6 py-4 border-x text-black bg-gray-300">
                   Block Number
                 </th>
-                <th scope="col" className="px-6 py-4 border-x text-black bg-slate-300">
+                <th scope="col" className="px-6 py-4 border-x text-black bg-gray-300">
                   TimeStamp
                 </th>
-                <th scope="col" className="px-6 py-4 border-x text-black bg-slate-300">
+                <th scope="col" className="px-6 py-4 border-x text-black bg-gray-300">
                   Hash
                 </th>
-                <th scope="col" className="px-6 py-4 border-x text-black bg-slate-300">
+                <th scope="col" className="px-6 py-4 border-x text-black bg-gray-300">
                   From
                 </th>
-                <th scope="col" className="px-6 py-4 border-x text-black bg-slate-300">
+                <th scope="col" className="px-6 py-4 border-x text-black bg-gray-300">
                   To
                 </th>
                 {/* <th scope="col" className="px-6 py-4 border-x text-black bg-slate-300">
@@ -72,8 +74,8 @@ function NormalTransaction(props) {
             </thead>
             <tbody>
               {transactions.map((transaction) => (
-                <tr key={transaction.hash} className="border-b border-neutral-600 hover:bg-blue-100">
-                  <td className="px-6 py-4 border-x font-medium">{transaction.blockNumber}</td>
+                <tr key={transaction.hash} className="border-b border-neutral-600   bg-gradient-to-r from-gray-100 to-gray-300 text-black ">
+                  <td className="px-6 py-4 border-x font-medium ">{transaction.blockNumber}</td>
                   <td className="px-6 py-4 border-x font-medium">{transaction.timeStamp}</td>
                   <td className="px-6 py-4 border-x font-medium">{transaction.hash}</td>
                   <td className="px-6 py-4 border-x font-medium">{transaction.from}</td>
