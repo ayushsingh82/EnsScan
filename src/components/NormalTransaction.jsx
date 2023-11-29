@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function NormalTransaction() {
+function NormalTransaction(props) {
   const [transactions, setTransactions] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,6 @@ function NormalTransaction() {
         const data = await response.json();
         console.log(data);
 
-        // Assuming the API response has a 'result' field containing the transactions
         setTransactions(data.result);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -25,122 +24,67 @@ function NormalTransaction() {
     };
 
     getData1();
-  }, []);
+  }, [props.address]);
 
   return (
-    <div className='flex flex-col justify-center'>
-    <div>
-      <h2 className='text-slate-800 text-2xl font-medium bg-slate-300 mx-auto w-[300px] border rounded-xl border-transparent'>Internal Transactions</h2>
+    <div className='flex flex-col justify-center mt-[40px]'>
+      <div>
+        <h2 className='text-slate-800 text-2xl font-medium bg-slate-300 mx-auto w-[300px] border rounded-xl border-transparent'>
+          Internal Transactions
+        </h2>
       </div>
       <div>
-      {transactions.length>0 &&transactions.map((transaction) => (
-        <div key={transaction.hash}>
-          {/* <p>Block Number: {transaction.blockNumber}</p> */}
-
-          <table class="min-w-full text-left text-sm whitespace-nowrap">
-
-{/* <!-- Table head --> */}
-<thead class="uppercase tracking-wider border-b-2 bg-slate-300 border-t">
-  <tr>
-    {/* <th scope="col" class="px-6 py-4 border-x ">
-      Product
-    </th>
-    <th scope="col" class="px-6 py-4 border-x">
-      Price
-    </th>
-    <th scope="col" class="px-6 py-4 border-x ">
-      Stock
-    </th>
-    <th scope="col" class="px-6 py-4 border-x ">
-      Status
-    </th> */}
-  </tr>
-</thead>
-
-{/* <!-- Table body --> */}
-<tbody>
-
-  <tr class="border-b border-neutral-600 hover:bg-slate-300]">
-    <th scope="row" class="px-6 py-4 border-x bg-slate-300">
-      Block Number
-    </th>
-    <td class="px-6 py-4 border-x ">{transaction.blockNumber}</td>
-  </tr>
-
-  <tr class="border-b border-neutral-600 hover:bg-slate-300 ">
-    <th scope="row" class="px-6 py-4 border-x bg-slate-300">
-      TimeStamp
-    </th>
-    <td class="px-6 py-4 border-x ">{transaction.timeStamp}</td>
-  </tr>
-
-  <tr class="border-b border-neutral-600 hover:bg-slate-300 ">
-    <th scope="row" class="px-6 py-4 border-x bg-slate-300">
-     Hash
-    </th>
-    <td class="px-6 py-4 border-x">{transaction.hash}</td>
-  </tr>
-
-  <tr class="border-b border-neutral-600 hover:bg-slate-300 ">
-    <th scope="row" class="px-6 py-4 border-x bg-slate-300">
-     From
-    </th>
-    <td class="px-6 py-4 border-x ">{transaction.from}</td>
-  </tr>
-
-  <tr class="border-b border-neutral-600 hover:bg-slate-300 ">
-    <th scope="row" class="px-6 py-4 border-x bg-slate-300">
-     To
-    </th>
-    <td class="px-6 py-4 border-x ">{transaction.to}</td>
-  </tr>
-
-  <tr class="border-b border-neutral-600 hover:bg-slate-300 ">
-    <th scope="row" class="px-6 py-4 border-x bg-slate-300">
-     Value
-    </th>
-    <td class="px-6 py-4 border-x ">{transaction.value}</td>
-  </tr>
-
-  <tr class="border-b border-neutral-600 hover:bg-slate-300 ">
-    <th scope="row" class="px-6 py-4 border-x bg-slate-300">
-   Gas
-    </th>
-    <td class="px-6 py-4 border-x ">{transaction.gas}</td>
-  </tr>
-
-  <tr class="border-b border-neutral-600 hover:bg-slate-300 ">
-    <th scope="row" class="px-6 py-4 border-x bg-slate-300">
-   Gas Price
-    </th>
-    <td class="px-6 py-4 border-x ">{transaction.gasPrice}</td>
-  </tr>
-
-
-</tbody>
-
-</table>
-
-          {/* <p>TimeStamp: {transaction.timeStamp}</p>
-          <p>Hash: {transaction.hash}</p>
-          <p>From: {transaction.from}</p>
-          <p>To: {transaction.to}</p>
-          <p>Value: {transaction.value}</p>
-          <p>Gas: {transaction.gas}</p>
-          <p>Gas Price: {transaction.gasPrice}</p> */}
-        </div>
-      ))}
-  </div>
-
- 
-
+        {transactions.length > 0 ? (
+          <table className="min-w-full text-left text-sm whitespace-nowrap">
+            <thead className="uppercase tracking-wider border-b-2 bg-slate-300 border-t">
+              <tr>
+                <th scope="col" className="px-6 py-4 border-x bg-slate-300">
+                  Block Number
+                </th>
+                <th scope="col" className="px-6 py-4 border-x bg-slate-300">
+                  TimeStamp
+                </th>
+                <th scope="col" className="px-6 py-4 border-x bg-slate-300">
+                  Hash
+                </th>
+                <th scope="col" className="px-6 py-4 border-x bg-slate-300">
+                  From
+                </th>
+                <th scope="col" className="px-6 py-4 border-x bg-slate-300">
+                  To
+                </th>
+                <th scope="col" className="px-6 py-4 border-x bg-slate-300">
+                  Value
+                </th>
+                <th scope="col" className="px-6 py-4 border-x bg-slate-300">
+                  Gas
+                </th>
+                <th scope="col" className="px-6 py-4 border-x bg-slate-300">
+                  Gas Price
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {transactions.map((transaction) => (
+                <tr key={transaction.hash} className="border-b border-neutral-600 hover:bg-slate-300">
+                  <td className="px-6 py-4 border-x">{transaction.blockNumber}</td>
+                  <td className="px-6 py-4 border-x">{transaction.timeStamp}</td>
+                  <td className="px-6 py-4 border-x">{transaction.hash}</td>
+                  <td className="px-6 py-4 border-x">{transaction.from}</td>
+                  <td className="px-6 py-4 border-x">{transaction.to}</td>
+                  <td className="px-6 py-4 border-x">{transaction.value}</td>
+                  <td className="px-6 py-4 border-x">{transaction.gas}</td>
+                  <td className="px-6 py-4 border-x">{transaction.gasPrice}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <p className='text-slate-800 mt-[30px] font-medium text-2xl'>No transactions available.</p>
+        )}
+      </div>
     </div>
   );
 }
 
 export default NormalTransaction;
-
-
-
-
-

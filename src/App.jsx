@@ -20,8 +20,7 @@ function App() {
       <Profile/>
       <EtherBalance/>
       <NormalTransaction/>
-{/* 
- <InternalTransaction/> */}
+    <InternalTransaction/>
 
 
       {/* <div className="mt-[40px]">
