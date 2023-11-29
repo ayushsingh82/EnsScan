@@ -10,8 +10,8 @@ function Header() {
      to-purple-800
      text-transparent
      bg-clip-text   
-      '>
-    EnsScan</h1>
+    '>
+    <span className='shadow-2xl'>EnsScan</span></h1>
   </div>
   )
 }

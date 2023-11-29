@@ -11,10 +11,10 @@ import Profile from "./components/Profile.jsx";
 
 
 function App() {
-
+  // bg-gradient-to-l from-purple-400 via-puple-300 to-purple-200
 
   return (
-    <div className="bg-gradient-to-l from-purple-400 via-puple-300 to-purple-200 overflow-hidden ">
+    <div className=" overflow-hidden  style={{color:#cec8ef }}">
       <Header />
       <Search />
       <Profile/>

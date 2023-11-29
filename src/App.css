@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+
+.custom-div {
+  margin-top: 40px;
+  font-size: 2xl;
+  font-weight: medium;
+  color: #394240; /* Assuming slate-800 color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

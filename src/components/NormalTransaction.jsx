@@ -29,52 +29,53 @@ function NormalTransaction(props) {
   return (
     <div className='flex flex-col justify-center mt-[40px]'>
       <div>
-        <h2 className='text-slate-800 text-2xl font-medium bg-slate-300 mx-auto w-[300px] border rounded-xl border-transparent'>
-          Internal Transactions
+        <h2 className='text-slate-800 text-2xl font-medium bg-purple-300 mx-auto w-[300px] border rounded-xl border-transparent
+        hover:scale-110 transition-all duration-500 ease-in-out'>
+         Normal Transactions
         </h2>
       </div>
-      <div>
+      <div className='mt-[40px]'>
         {transactions.length > 0 ? (
           <table className="min-w-full text-left text-sm whitespace-nowrap">
             <thead className="uppercase tracking-wider border-b-2 bg-slate-300 border-t">
               <tr>
-                <th scope="col" className="px-6 py-4 border-x bg-slate-300">
+                <th scope="col" className="px-6 py-4 border-x text-black bg-slate-300">
                   Block Number
                 </th>
-                <th scope="col" className="px-6 py-4 border-x bg-slate-300">
+                <th scope="col" className="px-6 py-4 border-x text-black bg-slate-300">
                   TimeStamp
                 </th>
-                <th scope="col" className="px-6 py-4 border-x bg-slate-300">
+                <th scope="col" className="px-6 py-4 border-x text-black bg-slate-300">
                   Hash
                 </th>
-                <th scope="col" className="px-6 py-4 border-x bg-slate-300">
+                <th scope="col" className="px-6 py-4 border-x text-black bg-slate-300">
                   From
                 </th>
-                <th scope="col" className="px-6 py-4 border-x bg-slate-300">
+                <th scope="col" className="px-6 py-4 border-x text-black bg-slate-300">
                   To
                 </th>
-                <th scope="col" className="px-6 py-4 border-x bg-slate-300">
+                {/* <th scope="col" className="px-6 py-4 border-x text-black bg-slate-300">
                   Value
                 </th>
-                <th scope="col" className="px-6 py-4 border-x bg-slate-300">
+                <th scope="col" className="px-6 py-4 border-x text-black bg-slate-300">
                   Gas
                 </th>
-                <th scope="col" className="px-6 py-4 border-x bg-slate-300">
+                <th scope="col" className="px-6 py-4 border-x text-black bg-slate-300">
                   Gas Price
-                </th>
+                </th> */}
               </tr>
             </thead>
             <tbody>
               {transactions.map((transaction) => (
-                <tr key={transaction.hash} className="border-b border-neutral-600 hover:bg-slate-300">
-                  <td className="px-6 py-4 border-x">{transaction.blockNumber}</td>
-                  <td className="px-6 py-4 border-x">{transaction.timeStamp}</td>
-                  <td className="px-6 py-4 border-x">{transaction.hash}</td>
-                  <td className="px-6 py-4 border-x">{transaction.from}</td>
-                  <td className="px-6 py-4 border-x">{transaction.to}</td>
-                  <td className="px-6 py-4 border-x">{transaction.value}</td>
-                  <td className="px-6 py-4 border-x">{transaction.gas}</td>
-                  <td className="px-6 py-4 border-x">{transaction.gasPrice}</td>
+                <tr key={transaction.hash} className="border-b border-neutral-600 hover:bg-blue-100">
+                  <td className="px-6 py-4 border-x font-medium">{transaction.blockNumber}</td>
+                  <td className="px-6 py-4 border-x font-medium">{transaction.timeStamp}</td>
+                  <td className="px-6 py-4 border-x font-medium">{transaction.hash}</td>
+                  <td className="px-6 py-4 border-x font-medium">{transaction.from}</td>
+                  <td className="px-6 py-4 border-x font-medium">{transaction.to}</td>
+                  <td className="px-6 py-4 border-x font-medium">{transaction.value}</td>
+                  <td className="px-6 py-4 border-x font-medium">{transaction.gas}</td>
+                  <td className="px-6 py-4 border-x font-medium">{transaction.gasPrice}</td>
                 </tr>
               ))}
             </tbody>

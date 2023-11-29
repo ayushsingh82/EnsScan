@@ -32,9 +32,9 @@ function EtherBalance(props) {
   }, [props.address]); // Make sure to include props.address in the dependency array to trigger the effect when the address changes
 
   return (
-    <div className='flex justify-center mt-[40px]'>
+    <div className='flex justify-center mt-[40px] shadow-sm'>
     <div className='text-2xl  text-slate-800 bg-purple-300 border rounded-xl border-transparent font-medium
-    hover:scale-110 transition-all duration-500 ease-in-out'>
+    hover:scale-110 transition-all duration-500 ease-in-out py-[10px] px-[10px]'>
       {loading ? (
         <p>Loading...</p>
       ) : (
