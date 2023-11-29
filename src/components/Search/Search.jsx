@@ -63,7 +63,8 @@ function Search() {
 
       <div className='border border-red-700 mt-[40px] flex flex-col justify-center '>
         <div className=' mt-[40px] text-2xl font-medium text-slate-800'>Account</div>
-        <div className='text-slate-800 text-2xl mt-[5px] flex justify-center items-center h-[80px] w-[900px]'>
+        <div className='text-slate-800 text-lg font-normal mt-[5px] mx-auto items-center h-[40px] w-[900px] bg-purple-300 border rounded-xl border-transparent
+         hover:scale-110 transition-all duration-500 ease-in-out'>
           {domains !== null && domains.length > 0 && domains.map((domain, index) => <div key={index}>{domain.id}</div>)}
           {/* <EtherBalance address={}domain.id/> */}
         </div>

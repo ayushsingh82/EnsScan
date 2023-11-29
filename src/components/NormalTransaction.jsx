@@ -28,20 +28,112 @@ function NormalTransaction() {
   }, []);
 
   return (
+    <div className='flex flex-col justify-center'>
     <div>
-      <h2>Internal Transactions</h2>
-      {transactions.map((transaction) => (
+      <h2 className='text-slate-800 text-2xl font-medium bg-slate-300 mx-auto w-[300px] border rounded-xl border-transparent'>Internal Transactions</h2>
+      </div>
+      <div>
+      {transactions.length>0 &&transactions.map((transaction) => (
         <div key={transaction.hash}>
-          <p>Block Number: {transaction.blockNumber}</p>
-          <p>TimeStamp: {transaction.timeStamp}</p>
+          {/* <p>Block Number: {transaction.blockNumber}</p> */}
+
+          <table class="min-w-full text-left text-sm whitespace-nowrap">
+
+{/* <!-- Table head --> */}
+<thead class="uppercase tracking-wider border-b-2 bg-slate-300 border-t">
+  <tr>
+    {/* <th scope="col" class="px-6 py-4 border-x ">
+      Product
+    </th>
+    <th scope="col" class="px-6 py-4 border-x">
+      Price
+    </th>
+    <th scope="col" class="px-6 py-4 border-x ">
+      Stock
+    </th>
+    <th scope="col" class="px-6 py-4 border-x ">
+      Status
+    </th> */}
+  </tr>
+</thead>
+
+{/* <!-- Table body --> */}
+<tbody>
+
+  <tr class="border-b border-neutral-600 hover:bg-slate-300]">
+    <th scope="row" class="px-6 py-4 border-x bg-slate-300">
+      Block Number
+    </th>
+    <td class="px-6 py-4 border-x ">{transaction.blockNumber}</td>
+  </tr>
+
+  <tr class="border-b border-neutral-600 hover:bg-slate-300 ">
+    <th scope="row" class="px-6 py-4 border-x bg-slate-300">
+      TimeStamp
+    </th>
+    <td class="px-6 py-4 border-x ">{transaction.timeStamp}</td>
+  </tr>
+
+  <tr class="border-b border-neutral-600 hover:bg-slate-300 ">
+    <th scope="row" class="px-6 py-4 border-x bg-slate-300">
+     Hash
+    </th>
+    <td class="px-6 py-4 border-x">{transaction.hash}</td>
+  </tr>
+
+  <tr class="border-b border-neutral-600 hover:bg-slate-300 ">
+    <th scope="row" class="px-6 py-4 border-x bg-slate-300">
+     From
+    </th>
+    <td class="px-6 py-4 border-x ">{transaction.from}</td>
+  </tr>
+
+  <tr class="border-b border-neutral-600 hover:bg-slate-300 ">
+    <th scope="row" class="px-6 py-4 border-x bg-slate-300">
+     To
+    </th>
+    <td class="px-6 py-4 border-x ">{transaction.to}</td>
+  </tr>
+
+  <tr class="border-b border-neutral-600 hover:bg-slate-300 ">
+    <th scope="row" class="px-6 py-4 border-x bg-slate-300">
+     Value
+    </th>
+    <td class="px-6 py-4 border-x ">{transaction.value}</td>
+  </tr>
+
+  <tr class="border-b border-neutral-600 hover:bg-slate-300 ">
+    <th scope="row" class="px-6 py-4 border-x bg-slate-300">
+   Gas
+    </th>
+    <td class="px-6 py-4 border-x ">{transaction.gas}</td>
+  </tr>
+
+  <tr class="border-b border-neutral-600 hover:bg-slate-300 ">
+    <th scope="row" class="px-6 py-4 border-x bg-slate-300">
+   Gas Price
+    </th>
+    <td class="px-6 py-4 border-x ">{transaction.gasPrice}</td>
+  </tr>
+
+
+</tbody>
+
+</table>
+
+          {/* <p>TimeStamp: {transaction.timeStamp}</p>
           <p>Hash: {transaction.hash}</p>
           <p>From: {transaction.from}</p>
           <p>To: {transaction.to}</p>
           <p>Value: {transaction.value}</p>
           <p>Gas: {transaction.gas}</p>
-          <p>Gas Price: {transaction.gasPrice}</p>
+          <p>Gas Price: {transaction.gasPrice}</p> */}
         </div>
       ))}
+  </div>
+
+ 
+
     </div>
   );
 }
