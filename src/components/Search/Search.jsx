@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { createClient, cacheExchange, fetchExchange } from '@urql/core';
+import EtherBalance from '../EtherBalance';
 
 function Search() {
   const [inputValue, setInputValue] = useState('');
@@ -22,7 +23,7 @@ function Search() {
 
   const getDomains = async () => {
     const { data } = await client.query(query).toPromise();
-    console.log(data);
+    // console.log(data);
     setDomains(data.domains);
   };
 
@@ -32,7 +33,7 @@ function Search() {
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
-    console.log(e.target.value);
+    // console.log(e.target.value);
   };
 
   const handleSearch = () => {
@@ -42,7 +43,7 @@ function Search() {
 
   return (
     <>
-      <div className='mt-[60px] flex justify-between rounded-xl border-solid border-2 h-[60px] p-[10px] w-[400px] mx-auto bg-slate-200'>
+      <div className='mt-[60px] flex justify-between rounded-xl border-solid border-2 border-transparent h-[60px] p-[10px] w-[400px] mx-auto bg-slate-300'>
         <div className='w-[400px] border border-transparent hover:border-slate-800 mr-[10px] rounded-xl h-[40px] flex hover:border-solid hover:border-2 font-medium text-lg px-[10px]'>
           <input
             className='h-[40px] w-[300px] overflow-hidden focus:outline-none bg-transparent'
@@ -64,6 +65,7 @@ function Search() {
         <div className=' mt-[40px] text-2xl font-medium text-slate-800'>Account</div>
         <div className='text-slate-800 text-2xl mt-[5px] flex justify-center items-center h-[80px] w-[900px]'>
           {domains !== null && domains.length > 0 && domains.map((domain, index) => <div key={index}>{domain.id}</div>)}
+          {/* <EtherBalance address={}domain.id/> */}
         </div>
       </div>
     </>

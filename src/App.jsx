@@ -4,40 +4,18 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search.jsx";
+import EtherBalance from "./components/EtherBalance.jsx";
 
-import { createClient, cacheExchange, fetchExchange } from "@urql/core";
 
 function App() {
-  // const [domains, setDomains] = useState([]);
-//   const QueryURL = "https://api.thegraph.com/subgraphs/name/ensdomains/ens";
 
-//   const client = createClient({
-//     url: QueryURL,
-//     exchanges: [cacheExchange, fetchExchange],
-//   });
-
-//   const query = `
-// query {
-//   domains(first:2) {
-//     id
-//     name
-//   }
-// }
-// `;
-
-//   useEffect(() => {
-//     const getDomains = async () => {
-//       const { data } = await client.query(query).toPromise();
-//       console.log(data);
-//       setDomains(data.domains);
-//     };
-//     getDomains();
-//   }, []);
 
   return (
     <div className="bg-gradient-to-l from-purple-400 via-puple-300 to-purple-200 overflow-hidden h-screen">
       <Header />
       <Search />
+      <EtherBalance/>
+
 
       {/* <div className="mt-[40px]">
         {domains !== null &&
