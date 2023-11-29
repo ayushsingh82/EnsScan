@@ -8,7 +8,7 @@ function EtherBalance(props) {
     const getData = async () => {
       try {
         const response = await fetch(
-          `https://api-sepolia.etherscan.io/api?module=account&action=balance&address=${props.address}&tag=latest&apikey=${process.env.API_KEY}`
+          `https://api-sepolia.etherscan.io/api?module=account&action=balance&address=0x382b4ca2c4a7cd28c1c400c69d81ec2b2637f7dd&tag=latest&apikey=XRSB1DE9127BU2S22MC5ZXEWCFZXZKWBD8`
         );
 
         if (!response.ok) {

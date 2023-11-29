@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react'
 
 function InternalTransaction(props) {
-  const [transaction, setTransaction] = useState("");
+
+    const [txn,setTxn]=useState([])
 
   useEffect(() => {
-    const getData1 = async () => {
+    
+    const getData2 = async () => {
       try {
         const response = await fetch(
-          `https://api-sepolia.etherscan.io/api?module=account&action=txlist&address=${props.address}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=${process.env.API_KEY}`
+    `https://api-sepolia.etherscan.io/api?module=account&action=txlist&address=${props.address}&startblock=0&endblock=99999999&page=1 &offset=10&sort=asc&apikey=${process.env.API_KEY}`
         );
 
         if (!response.ok) {
@@ -21,15 +23,14 @@ function InternalTransaction(props) {
       }
     };
 
-    getData1();
+    getData2();
   }, []);
 
   return (
     <div>
-
+      
     </div>
-  );
+  )
 }
 
-export default InternalTransaction;
-
+export default InternalTransaction

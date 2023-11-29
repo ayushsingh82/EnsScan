@@ -5,6 +5,9 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search.jsx";
 import EtherBalance from "./components/EtherBalance.jsx";
+import InternalTransaction from "./components/InternalTransaction.jsx";
+import NormalTransaction from "./components/NormalTransaction.jsx";
+import Profile from "./components/Profile.jsx";
 
 
 function App() {
@@ -14,7 +17,11 @@ function App() {
     <div className="bg-gradient-to-l from-purple-400 via-puple-300 to-purple-200 overflow-hidden h-screen">
       <Header />
       <Search />
+      <Profile/>
       <EtherBalance/>
+      <NormalTransaction/>
+{/* 
+ <InternalTransaction/> */}
 
 
       {/* <div className="mt-[40px]">
