@@ -6,8 +6,9 @@ function InternalTransaction(props) {
   useEffect(() => {
     const getData2 = async () => {
       try {
-        const response = await fetch(
-          `https://api-sepolia.etherscan.io/api?module=account&action=txlist&address=0xa4fadaa5e8577fee5799e2bd9615014013b45c5d&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=XRSB1DE9127BU2S22MC5ZXEWCFZXZKWBD8`
+        if(props.address)
+        {const response = await fetch(
+          `https://api.etherscan.io/api?module=account&action=txlist&address=${props.address}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=XRSB1DE9127BU2S22MC5ZXEWCFZXZKWBD8`
         );
 
         if (!response.ok) {
@@ -16,9 +17,12 @@ function InternalTransaction(props) {
 
         const data = await response.json();
         console.log('API Response:', data);
-
+        if(data.result === 'Max rate limit reached'){
+          console.log("here")
+          return
+        }
         // Assuming the API response has a 'result' field containing the transactions
-        setTxns(data.result);
+        setTxns(data.result);}
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -70,7 +74,7 @@ function InternalTransaction(props) {
               </tr>
             </thead>
             <tbody>
-              {txns.map((txn) => (
+              {txns?.map((txn) => (
                 <tr key={txn.hash} className="border-b border-neutral-600 hover:bg-blue-100">
                   <td className="px-6 py-4 border-x font-medium">{txn.blockNumber}</td>
                   <td className="px-6 py-4 border-x font-medium">{txn.timeStamp}</td>

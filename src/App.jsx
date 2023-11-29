@@ -12,15 +12,19 @@ import Profile from "./components/Profile.jsx";
 
 function App() {
   // bg-gradient-to-l from-purple-400 via-puple-300 to-purple-200
+  const [address, setAdrress] = useState(null);
+  if(address){
+    console.log(address)
+  }
 
   return (
     <div className=" overflow-hidden  style={{color:#cec8ef }}">
       <Header />
-      <Search />
+      <Search callback={setAdrress}/>
       <Profile/>
-      <EtherBalance/>
-      <NormalTransaction/>
-    <InternalTransaction/>
+      <EtherBalance address={address }/>
+      <NormalTransaction address={address }/>
+    <InternalTransaction address={address }/>
 
 
       {/* <div className="mt-[40px]">

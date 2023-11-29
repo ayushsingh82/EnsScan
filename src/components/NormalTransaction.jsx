@@ -6,8 +6,9 @@ function NormalTransaction(props) {
   useEffect(() => {
     const getData1 = async () => {
       try {
-        const response = await fetch(
-          `https://api-sepolia.etherscan.io/api?module=account&action=txlist&address=0x382b4CA2C4a7cD28c1c400C69d81ec2b2637f7dD&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=XRSB1DE9127BU2S22MC5ZXEWCFZXZKWBD8`
+        if(props.address)
+        {const response = await fetch(
+          `https://api.etherscan.io/api?module=account&action=txlist&address=${props.address}&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=XRSB1DE9127BU2S22MC5ZXEWCFZXZKWBD8`
         );
 
         if (!response.ok) {
@@ -16,8 +17,12 @@ function NormalTransaction(props) {
 
         const data = await response.json();
         console.log(data);
+        if(data.result === 'Max rate limit reached'){
+          console.log("here")
+          return
+        }
 
-        setTransactions(data.result);
+        setTransactions(data.result);}
       } catch (error) {
         console.error('Error fetching data:', error);
       }

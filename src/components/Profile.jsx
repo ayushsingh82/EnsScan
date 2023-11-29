@@ -14,18 +14,18 @@ function Profile() {
         <div className='flex justify-between'>
 
          <div className='ml-[30px]'>
-          <input name='switch' id='' type='radio'/>
-         <label className='text-xl text-slate-800 font-medium'>Balance</label>
+          <input name='switch' id='balan' type='radio'/>
+         <label for="balan" className='text-xl text-slate-800 font-medium'>Balance</label>
          </div>
 
         <div>
-          <input name='switch' id='' type='radio'/>
-          <label className='text-xl text-slate-800 font-medium'>Normal Txn</label>
+          <input name='switch' id='normal' type='radio'/>
+          <label for="normal" className='text-xl text-slate-800 font-medium'>Normal Txn</label>
           </div>
 
           <div className='mr-[30px]'>
-          <input name='switch' id='' type='radio'/>
-          <label className='text-xl text-slate-800 font-medium'>Internal Txn</label>
+          <input name='switch' id='internal' type='radio'/>
+          <label for="internal" className='text-xl text-slate-800 font-medium'>Internal Txn</label>
           </div>
 
 

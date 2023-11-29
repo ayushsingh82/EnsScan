@@ -1,4 +1,6 @@
 import React from 'react'
+import { FaTwitter,FaLinkedinIn } from "react-icons/fa";
+// import { NavLink } from 'react-router-dom';
 
 function Header() {
   return (
@@ -12,6 +14,21 @@ function Header() {
      bg-clip-text   
     '>
     <span className='shadow-2xl'>EnsScan</span></h1>
+    <div className='flex gap-x-5 text-2xl mt-[70px] mr-[10px] lg:ml-[1100px] ml-[400px]'>
+    {/* <NavLink
+    to="https://www.linkedin.com/in/ayush-singh-02b978248"
+    target="_blank">
+    <FaLinkedinIn/></NavLink>
+
+    <NavLink
+   to="https://x.com/eth_ayushS"
+   target="_blank">
+    <FaTwitter/>
+    </NavLink> */}
+    
+    <FaLinkedinIn/>
+    <FaTwitter/>
+    </div>
   </div>
   )
 }

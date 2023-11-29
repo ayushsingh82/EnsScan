@@ -6,7 +6,7 @@ import { createClient, cacheExchange, fetchExchange } from '@urql/core';
 import { FaCopy } from "react-icons/fa";
 import EtherBalance from '../EtherBalance';
 
-function Search() {
+function Search(props) {
 
   const [copied,setCopied]=useState(false)
   const [inputValue, setInputValue] = useState('');
@@ -20,21 +20,24 @@ function Search() {
 
   const query = `
     query {
-      domains(where:{name:"${inputValue}"}) {
+      domains(where: {name: "${inputValue}"}) {
         id
+        resolvedAddress {
+          id
+        }
       }
     }
   `;
 
   const getDomains = async () => {
+    console.log(query)
     const { data } = await client.query(query).toPromise();
     // console.log(data);
     setDomains(data.domains);
+    console.log(data)
+    props.callback(data.domains[0].resolvedAddress.id)
   };
 
-  useEffect(() => {
-    getDomains();
-  }, []); // Run the effect when inputValue changes
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -79,8 +82,8 @@ function Search() {
         <div className=' mt-[40px] text-2xl font-medium text-slate-800'><span className='shadow-xl'>Account</span></div>
         <div className='text-slate-800 text-lg font-semibold mt-[5px] mx-auto items-center h-[40px] w-[900px] bg-purple-300 border rounded-xl border-transparent
          hover:scale-110 transition-all duration-500 ease-in-out'>
-          {domains !== null && domains.length > 0 && domains.map((domain, index) => <div key={index}>{domain.id}
-          <CopyToClipboard onCopy={()=>handleCopy(domain.id)}
+          {domains !== null && domains.length > 0 && domains.map((domain, index) => <div key={index}>{domain.resolvedAddress.id}
+          <CopyToClipboard onCopy={()=>handleCopy(domain.resolvedAddress.id)}
           text={domain.id}>
            <button className='ml-[50px] '><FaCopy /></button>
           </CopyToClipboard>

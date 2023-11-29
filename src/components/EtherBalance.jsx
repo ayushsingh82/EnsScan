@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
 
 function EtherBalance(props) {
-  const [balance, setBalance] = useState("");
+  const [balance, setBalance] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const response = await fetch(
-          `https://api-sepolia.etherscan.io/api?module=account&action=balance&address=0x382b4ca2c4a7cd28c1c400c69d81ec2b2637f7dd&tag=latest&apikey=XRSB1DE9127BU2S22MC5ZXEWCFZXZKWBD8`
+        if(props.address)
+        {const response = await fetch(
+          `https://api.etherscan.io/api?module=account&action=balance&address=${props.address}&tag=latest&apikey=XRSB1DE9127BU2S22MC5ZXEWCFZXZKWBD8`
         );
 
         if (!response.ok) {
@@ -17,9 +18,12 @@ function EtherBalance(props) {
 
         const data = await response.json();
         console.log(data);
-
+        if(data.result === 'Max rate limit reached'){
+          console.log("here")
+          return
+        }
         // Set the balance state with the value from the 'result' field
-        setBalance(data.result);
+        setBalance((Number(data.result)/10**18));}
       } catch (error) {
         console.error('Error fetching data:', error);
       } finally {
