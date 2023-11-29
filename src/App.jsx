@@ -73,9 +73,10 @@ function App() {
 
       {/* <Profile /> */}
      
-      {profile === 'balan' ?  <EtherBalance address={address }/>: <p className="text-2xl text-slate-800 font-medium">No Balance</p>}
-      {profile === 'normal' ?  <NormalTransaction address={address }/>: <p className="text-2xl text-slate-800 font-medium">No Normal Transactions</p>}
-      {profile === 'internal' ?  <InternalTransaction address={address }/>: <p className="text-2xl text-slate-800 font-medium">No Internal Transactions</p>}
+      {profile === 'balan' ?  <EtherBalance address={address }/>: <></>}
+      {profile === 'normal' ?  <NormalTransaction address={address }/>: <></>}
+      {profile === 'internal' ?  <InternalTransaction address={address }/>: <></>}
+      
 
 
       {/* <div className="mt-[40px]">
@@ -120,3 +121,6 @@ function App() {
 }
 
 export default App;
+
+{/* <p className="text-2xl text-slate-800 font-medium">No Normal Transactions</p> */}
+

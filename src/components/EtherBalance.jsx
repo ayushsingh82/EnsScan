@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Loader } from './Loader';
 
 function EtherBalance(props) {
   const [balance, setBalance] = useState(0);
@@ -37,12 +38,14 @@ function EtherBalance(props) {
 
   return (
     <div className='flex justify-center mt-[40px] shadow-sm'>
-    <div className='text-2xl  text-slate-800 bg-purple-300 border rounded-xl border-transparent font-medium
+    <div className='text-2xl  text-slate-800
+     bg-gradient-to-l from-purple-500 via-purple-200 to-purple-400
+     border rounded-xl border-transparent font-medium
     hover:scale-110 transition-all duration-500 ease-in-out py-[10px] px-[10px]'>
       {loading ? (
-        <p>Loading...</p>
+        <p><Loader/></p>
       ) : (
-        <p>Balance: {balance}</p>
+        <p>Balance: {balance} ETH</p>
       )}
     </div>
     </div>

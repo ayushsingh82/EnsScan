@@ -12,8 +12,8 @@ function Header() {
      to-purple-800
      text-transparent
      bg-clip-text   
-    '>
-    <span className='shadow-2xl'>EnsScan</span></h1>
+     hover:scale-110 transition-all duration-500 ease-in-out'>
+    <span className='shadow-2xl '>EnsScan</span></h1>
     <div className='flex gap-x-5 text-2xl mt-[70px] mr-[10px] lg:ml-[1100px] ml-[400px]'>
     {/* <NavLink
     to="https://www.linkedin.com/in/ayush-singh-02b978248"
