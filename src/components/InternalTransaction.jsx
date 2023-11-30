@@ -84,9 +84,9 @@ function InternalTransaction(props) {
                   <td className="px-6 py-4 border-x font-medium">{txn.hash}</td>
                   <td className="px-6 py-4 border-x font-medium">{txn.from}</td>
                   <td className="px-6 py-4 border-x font-medium" >{txn.to}</td>
-                  <td className="px-6 py-4 border-x font-medium">{txn.value}</td>
+                  {/* <td className="px-6 py-4 border-x font-medium">{txn.value}</td>
                   <td className="px-6 py-4 border-x font-medium">{txn.gas}</td>
-                  <td className="px-6 py-4 border-x font-medium">{txn.gasUsed}</td>
+                  <td className="px-6 py-4 border-x font-medium">{txn.gasUsed}</td> */}
                 </tr>
               ))}
             </tbody>
