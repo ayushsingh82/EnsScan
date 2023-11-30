@@ -96,3 +96,5 @@ function NormalTransaction(props) {
 }
 
 export default NormalTransaction;
+
+//almost done
