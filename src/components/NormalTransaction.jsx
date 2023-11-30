@@ -79,10 +79,10 @@ function NormalTransaction(props) {
                   <td className="px-6 py-4 border-x font-medium">{transaction.timeStamp}</td>
                   <td className="px-6 py-4 border-x font-medium">{transaction.hash}</td>
                   <td className="px-6 py-4 border-x font-medium">{transaction.from}</td>
-                  <td className="px-6 py-4 border-x font-medium">{transaction.to}</td>
+                  {/* <td className="px-6 py-4 border-x font-medium">{transaction.to}</td>
                   <td className="px-6 py-4 border-x font-medium">{transaction.value}</td>
                   <td className="px-6 py-4 border-x font-medium">{transaction.gas}</td>
-                  <td className="px-6 py-4 border-x font-medium">{transaction.gasPrice}</td>
+                  <td className="px-6 py-4 border-x font-medium">{transaction.gasPrice}</td> */}
                 </tr>
               ))}
             </tbody>
