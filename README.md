@@ -16,6 +16,12 @@ EnsScan is a tool designed to simplify the tracking of transactions and balances
 ![image](https://github.com/ayushsingh82/EnsScan/assets/121667116/f9ea13e3-c150-430b-8a7d-c5d56559d4fe)
 
 
+#Graph query
+
+![image](https://github.com/ayushsingh82/EnsScan/assets/121667116/da55900e-3eea-410d-bc9e-ffe1258583fb)
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
